@@ -1,39 +1,28 @@
-package com.EmployeeManagement;
+import java.util.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+class Employee {
+    private int id;
+    private String name;
+    private double salary;
 
-@Entity
-@Table(name = "employees")
-public class Employee {
- @Id
- @GeneratedValue(strategy=GenerationType.AUTO)
- private int id;
- @Column(nullable=false)
- private String name;
- @Column(nullable=false)
- private double salary;
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public double getSalary() {
-	return salary;
-}
-public void setSalary(double salary) {
-	this.salary = salary;
-}
- 
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public void displayDetails() {
+        System.out.println("ID: " + id + ", Name: " + name + ", Salary: " + salary);
+    }
+
+    public static void main(String[] args) {
+        List<Employee> e = new ArrayList<>();
+        e.add(new Employee(1, "Swati", 98765));
+        e.add(new Employee(2, "Sonalika",45678));
+        e.add(new Employee(3, "Bihari", 876543));
+
+        for (Employee emp : e) {
+            emp.displayDetails();
+        }
+    }
 }
