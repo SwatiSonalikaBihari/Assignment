@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Image Slider</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f7e7d9; 
+            margin: 0;
+            padding: 20px;
+        }
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            height: 450px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 8px solid white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            background-color: #e0f7fa; 
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            background-color: white;
+        }
+        .buttons {
+            margin-top: 15px;
+        }
+        button {
+            padding: 12px 18px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background-color: #4CAF50; 
+            color: white;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #388E3C; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Flower Image Slider</h2>
+    <div class="slider-container">
+        <img id="slider" src="img/flower12.jfif" alt="Flower Image">
+    </div>
+    <div class="buttons">
+        <button onclick="prev()">Previous</button>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <script>
+        let images = ["img/flower9.jfif", "img/flower11.jfif", "img/flowe3.jfif", "img/flowe4.jfif"];
+        let current = 0;
+
+        function updateImage() {
+            document.getElementById("slider").src = images[current];
+        }
+
+        function next() {
+            if (current < images.length - 1) {
+                current++;
+            } else {
+                current = 0;
+            }
+            updateImage();
+        }
+
+        function prev() {
+            if (current > 0) {
+                current--;
+            } else {
+                current = images.length - 1;
+            }
+            updateImage();
+        }
+    </script>
+
+</body>
+</html>
