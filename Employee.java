@@ -12,7 +12,7 @@ class Employee {
     }
 
     public void displayDetails() {
-        System.out.println("ID: " + id + ", Name: " + name + ", Salary: " + salary);
+        System.out.println("ID:"+id + ",Name:" +name + ",Salary:"+ salary);
     }
 
     public static void main(String[] args) {
